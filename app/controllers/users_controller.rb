@@ -1,15 +1,25 @@
 class UsersController < ApplicationController
+
   def new
-    @user = User.new()
+    if params[:back]
+      @user = User.new(user_params)
+    else
+      @user = User.new()
+    end
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to 'top'
+      redirect_to user_path(@user.id)
     else
       render 'new'
     end
+  end
+
+  def confirm
+    @user = User.new(user_params)
+    render:new if @user.invalid?
   end
 
   private

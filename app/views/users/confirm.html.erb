@@ -1,0 +1,26 @@
+<h1>確認画面</h1>
+
+<%= form_with(model:@user , local: true) do |f| %>
+  <p>名前：<%= @user.name %></p>
+  <p>メール：<%= @user.email %></p>
+  <p>pass：<%= @user.password %></p>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :password %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= form_with(model:@user , local: true , method: 'get', url: new_user_path) do |f| %>
+
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :password %>
+
+  <%= f.submit "戻る",name:'back' %>
+  
+
+<% end %>
+
+

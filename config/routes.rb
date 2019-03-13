@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  resources :users
+  resources :users ,only:[:new,:create,:destroy] do
+    collection do
+      post :confirm
+    end
+  end
 end
