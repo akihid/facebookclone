@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     render:new if @user.invalid?
   end
 
+  def destroy
+    @user.destroy
+  end
+
   private
 
   def  user_params
