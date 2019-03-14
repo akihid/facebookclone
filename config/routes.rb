@@ -3,11 +3,9 @@ Rails.application.routes.draw do
     collection do
       post :confirm
     end
-    member do
-      patch :confirm
-    end
   end
   resources :sessions
+  resources :favorites , only:[:create , :destroy]
   resources :users ,only:[:new,:create,:destroy] do
     collection do
       post :confirm
