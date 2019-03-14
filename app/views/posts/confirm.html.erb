@@ -1,0 +1,17 @@
+<%= form_with(model:@post , local:true ,url: posts_path) do |f|%>
+
+  <p>タイトル:<%= @post.title %></p>
+  <p>内容:<%= @post.content %></p>
+  <%= f.hidden_field :title%>
+  <%= f.hidden_field :content%>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= form_with(model: @post , local: true , method: 'get' , url: new_post_path) do |f|%>
+  <%= f.hidden_field :title%>
+  <%= f.hidden_field :content%>
+
+  <%= f.submit '戻る', name: 'back'%>
+<% end %>

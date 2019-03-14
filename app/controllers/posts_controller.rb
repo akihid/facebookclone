@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
+  before_action :set_post , only:[:edit , :update ,:destroy]
+
   def index
-    @post = Post.new
-    @posts = Post.all
+    @posts = Post.all.order("updated_at desc")
   end
 
   def new
-    @post = Post.new
+    if params[:back]
+      @post = Post.new(post_params)
+    else
+      @post = Post.new
+    end
   end
 
   def create
@@ -19,10 +24,35 @@ class PostsController < ApplicationController
     end
   end
 
-  private
+  def confirm
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    render 'new' if @post.invalid?
+  end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path
+  end
+
+  private
 
   def post_params
     params.require(:post).permit(:title , :content , :img_path , :user_id)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
