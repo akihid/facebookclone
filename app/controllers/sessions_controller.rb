@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
   end
 
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       # ログイン
       session[:user_id] = @user.id
-      redirect_to new_session_path
+      redirect_to posts_path
     else
       # トップに
       flash[:danger] = 'ログイン失敗'

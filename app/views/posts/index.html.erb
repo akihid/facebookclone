@@ -7,19 +7,20 @@
   <p>名前:<%= post.user.name%></p>
   <%= image_tag("#{post.img_path}")%>
   
-  <%# current_userと投稿者が同じ場合のみ、編集・削除のリンクを表示する %>
-  <% if current_user.name == post.user.name %>
-    <%= link_to '編集' , edit_post_path(post.id)%>
-    <%= link_to '削除' , post_path(post.id) ,method: :delete , data:{confirm: '本当に削除していいですか？' }%>
-  <% end %>
-  
-  <%# お気に入り機能 %>
-  <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除' , favorite_path(id: @favorite.id) , method: :delete %>
-  <% else %>
-    <%= link_to 'お気に入り登録' , favorites_path(post_id: post.id) , method: :post %>
-  <% end %>
- 
+  <%if current_user.present? %>
+    <%# current_userと投稿者が同じ場合のみ、編集・削除のリンクを表示する %>
+    <% if current_user.name == post.user.name %>
+      <%= link_to '編集' , edit_post_path(post.id)%>
+      <%= link_to '削除' , post_path(post.id) ,method: :delete , data:{confirm: '本当に削除していいですか？' }%>
+    <% end %>
+    
+    <%# お気に入り機能 %>
+    <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除' , favorite_path(id: @favorite.id) , method: :delete %>
+    <% else %>
+      <%= link_to 'お気に入り登録' , favorites_path(post_id: post.id) , method: :post %>
+    <% end %>
+<% end %> 
 
 <% end %>
