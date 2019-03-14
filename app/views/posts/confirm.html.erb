@@ -5,6 +5,9 @@
   <%= f.hidden_field :title%>
   <%= f.hidden_field :content%>
 
+  <%= image_tag(@post.img_path.url) if @post.img_path && @post.img_path.url %>
+  <%= f.hidden_field :img_path_cache %>
+
   <%= f.submit %>
 
 <% end %>
@@ -12,6 +15,7 @@
 <%= form_with(model: @post , local: true , method: 'get' , url: new_post_path) do |f|%>
   <%= f.hidden_field :title%>
   <%= f.hidden_field :content%>
+  <%= f.hidden_field :img_path_cache %>
 
   <%= f.submit '戻る', name: 'back'%>
 <% end %>

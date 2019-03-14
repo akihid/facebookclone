@@ -18,6 +18,11 @@
   <%= f.label :content%>
   <%= f.text_area :content%>
 
+  <%= f.label :img_path%>
+  <%= image_tag(@post.img_path.url) if @post.img_path && @post.img_path.url %>
+  <%= f.file_field :img_path %>
+  <%= f.hidden_field :img_path_cache%>
+
   <%= f.submit %>
 
 <% end %>

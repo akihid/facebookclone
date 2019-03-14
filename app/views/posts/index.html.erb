@@ -4,6 +4,7 @@
 <% @posts.each do |post|%>
   <p>タイトル:<%= post.title%></p>
   <p>名前:<%= post.user.name%></p>
+  <%= image_tag("#{post.img_path}")%>
   
   <%# current_userと投稿者が同じ場合のみ、編集・削除のリンクを表示する %>
   <% if current_user.name == post.user.name %>
