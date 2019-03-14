@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+
+
+<% @posts.each do |post|%>
+  <p>タイトル:<%= post.title%></p>
+  <p>名前:<%= post.user.name%></p>
+  
+<%# current_userとブログ投稿者が同じ場合のみ、編集・削除のリンクを表示する %>
+<% if true %>
+
+<% end %>
+
+
+<% end %>
