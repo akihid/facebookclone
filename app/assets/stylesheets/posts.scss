@@ -1,3 +1,84 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.post_top{
+  margin-bottom:10px;
+}
+
+.post_list{
+  overflow: scrool;
+}
+.post_area{
+  background-color: #EEEEEE;
+  margin-bottom: 15px;
+  height: 200px;
+  position: relative;
+}
+.post_area_top{
+  width:100%;
+  height: 25px;
+  overflow:hidden;
+}
+.post_area_top .post_title{
+  float: left;
+}
+.post_area_top .post_name{
+  float: right;
+}
+
+.post_area_main{
+  width:100%;
+  height: 150px;
+}
+
+.post_area_main{
+  width:100%;
+  height: 150px;
+}
+
+.post_area_main pre{
+  width: 100%;
+  height: 140px;
+  background-color: #EEEEEE;
+  text-align: left;
+
+}
+
+.post_area_img{
+  width:150px;
+  height:150px;
+}
+
+.post_area_bottom{
+  width: 100%;
+  height: 25px;
+}
+
+.post_area_bottom_left{
+  float: left;
+}
+.post_area_bottom_right{
+  float: right;
+}
+
+.post_area_bottom a{
+  color:#999999;
+}
+label{
+  width:100px;
+  padding: 5px;
+  vertical-align: middle;
+}
+input[type=text],input[type=file]{
+  display: inline-block;
+  color:#333;
+  margin-left: 20px;
+  width: 200px;
+  padding: 5px;
+}
+
+textarea{
+  color:#333;
+  height:60px;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 200px;
+  padding: 5px;
+}

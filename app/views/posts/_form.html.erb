@@ -1,6 +1,6 @@
 <% if @post.errors.any? %>
   <div id ="error_explantion">
-  <h2><%= pluralize(@post.errors.count , "error") %>あり<h2>
+  <h2><%= pluralize(@post.errors.count , "件") %>のエラーがあります<h2>
     <ul>
       <% @post.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -9,22 +9,26 @@
   </div>
 <% end %>
 
+<%= form_with(model:@post , local:true , url: choose_new_or_edit_url , class:"form form_border") do |f|%>
+  <div class="form_group">
+    <%= f.label :title%>
+    <%= f.text_field :title%>
+  </div>
+  <div class="form_group">
+    <%= f.label :content%>
+    <%= f.text_area :content%>
+  </div>
+  <div class="form_group">
+    <%= f.label :img_path%>
+    <%= f.file_field :img_path %>
+  </div>
+  <div class="form_group">
+    <%= image_tag(@post.img_path.url) if @post.img_path && @post.img_path.url %>
+    <%= f.hidden_field :img_path_cache%>
+  </div>
+  
 
-<%= form_with(model:@post , local:true , url: choose_new_or_edit_url) do |f|%>
-
-  <%= f.label :title%>
-  <%= f.text_field :title%>
-
-  <%= f.label :content%>
-  <%= f.text_area :content%>
-
-  <%= f.label :img_path%>
-  <%= image_tag(@post.img_path.url) if @post.img_path && @post.img_path.url %>
-  <%= f.file_field :img_path %>
-  <%= f.hidden_field :img_path_cache%>
-
-  <%= f.submit %>
-
+  <%= f.submit "登録", class:"btn btn-default btn-xs"%>
+  <%= link_to '戻る' , posts_path ,class:"btn btn-default btn-xs"%>
 <% end %>
 
-<%= link_to '戻る' , posts_path %>

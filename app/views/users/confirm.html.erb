@@ -1,26 +1,33 @@
 <h1>確認画面</h1>
 
-<%= form_with(model:@user , local: true) do |f| %>
-  <p>名前：<%= @user.name %></p>
-  <p>メール：<%= @user.email %></p>
-  <p>pass：<%= @user.password %></p>
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :password %>
+<div class="form_border">
+  <%= form_with(model:@user , local: true ,class:"form") do |f| %>
+    <div class="item">
+      <p>名前：<%= @user.name %></p>
+    </div>
+    <div class="item">
+      <p>メールアドレス：<%= @user.email %></p>
+    </div>
+    <div class="item">
+      <p>パスワード：<%= @user.password %></p>
+    </div>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :password %>
 
-  <%= f.submit %>
+    <%= f.submit "登録" ,class:"btn btn-default btn-xs"%>
 
-<% end %>
+  <% end %>
 
-<%= form_with(model:@user , local: true , method: 'get', url: new_user_path) do |f| %>
+  <%= form_with(model:@user , local: true , method: 'get', url: new_user_path ,class:"form") do |f| %>
 
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :password %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :password %>
 
-  <%= f.submit "戻る",name:'back' %>
-  
+    <%= f.submit "戻る",name:'back' ,class:"btn btn-default btn-xs"%>
 
-<% end %>
+  <% end %>
+</div>
 
 

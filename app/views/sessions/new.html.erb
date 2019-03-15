@@ -1,12 +1,13 @@
 <h1>ログイン画面</h1>
-<%= form_with(scope: :session ,url: sessions_path , local: true )do |f|%>
-
-  <%= f.label :email %>
+<%= form_with(scope: :session ,url: sessions_path , local: true ,class:"form form_border")do |f|%>
+ <div class="form-group">
+  <%= f.label :email ,"メールアドレス"%>
   <%= f.email_field :email %>
-
-  <%= f.label :password %>
+</div>
+ <div class="form-group">
+  <%= f.label :password ,"パスワード"%>
   <%= f.password_field :password %>
-
-  <%= f.submit %>
+</div>
+  <%= f.submit "ログイン" , class:"btn btn-default btn-xs"%>
 
 <% end %>
