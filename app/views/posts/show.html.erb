@@ -21,16 +21,12 @@
         </div>
         <div class="post_area_bottom">
           <%if current_user.present? %>
-            <% if current_user.name == post.user.name %>
               <div class="post_area_bottom_left">
                 <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
                 <% if @favorite.present? %>
                   <%= link_to 'お気に入り解除' , favorite_path(id: @favorite.id) , method: :delete %>
-                <% else %>
-                  <%= link_to 'お気に入り登録' , favorites_path(post_id: post.id) , method: :post %>
                 <% end %>
               </div>
-            <% end %>
           <% end %>
         </div>
        </div>
