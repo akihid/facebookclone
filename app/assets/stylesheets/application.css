@@ -103,6 +103,9 @@ footer p{
 .form_border{
   border: 1px solid #ccc;
 }
+.hidden_filed{
+  display: none;
+}
 
 .clearfix:after {
   content: "";

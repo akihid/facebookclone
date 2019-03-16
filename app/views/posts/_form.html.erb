@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<%= form_with(model:@post , local:true , url: choose_new_or_edit_url , class:"form form_border") do |f|%>
+<%= form_with(model:@post , local:true , url: choose_new_or_edit_url , class:"form post_form form_border") do |f|%>
   <div class="form_group">
     <%= f.label :title%>
     <%= f.text_field :title%>
@@ -22,13 +22,14 @@
     <%= f.label :img_path%>
     <%= f.file_field :img_path %>
   </div>
-  <div class="form_group">
-    <%= image_tag(@post.img_path.url) if @post.img_path && @post.img_path.url %>
+  <div class="form_group img_field">
+    <%= image_tag(@post.img_path.url,class:"post_area_img") if @post.img_path && @post.img_path.url %>
     <%= f.hidden_field :img_path_cache%>
   </div>
   
-
+<div class="btn_area">
   <%= f.submit "登録", class:"btn btn-default btn-xs"%>
   <%= link_to '戻る' , posts_path ,class:"btn btn-default btn-xs"%>
+</div>
 <% end %>
 

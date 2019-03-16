@@ -1,7 +1,5 @@
-<div class="post_top">
-  <%= link_to '新規投稿' , new_post_path ,class:"btn btn-default"%>
-  <%=link_to 'お気に入り絞り込み表示' , post_path(current_user.id) ,class:"btn btn-default"%>
-</div>
+<%=link_to '一覧へ' , posts_path ,class:"btn btn-default show_btn"%>
+<h1>お気に入り一覧</h1>
   <div class="row post_list">
     <% @posts.each do |post| %>
     <div class="col-md-6">
@@ -31,10 +29,6 @@
                 <% else %>
                   <%= link_to 'お気に入り登録' , favorites_path(post_id: post.id) , method: :post %>
                 <% end %>
-              </div>
-              <div class="post_area_bottom_right">
-                  <%= link_to '編集' , edit_post_path(post.id)%>
-                  <%= link_to '削除' , post_path(post.id) ,method: :delete , data:{confirm: '本当に削除していいですか？' }%>
               </div>
             <% end %>
           <% end %>

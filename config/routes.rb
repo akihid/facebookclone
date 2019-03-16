@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts , only:[:index , :new ,:create , :edit , :update , :destroy] do
+  resources :posts , only:[:index , :new ,:create , :edit , :update , :show,:destroy] do
     collection do
       post :confirm
     end

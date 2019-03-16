@@ -8,24 +8,21 @@
     <div class="item">
       <p>メールアドレス：<%= @user.email %></p>
     </div>
-    <div class="item">
-      <p>パスワード：<%= @user.password %></p>
-    </div>
     <%= f.hidden_field :name %>
     <%= f.hidden_field :email %>
     <%= f.hidden_field :password %>
 
     <%= f.submit "登録" ,class:"btn btn-default btn-xs"%>
+    <p class="btn btn-default btn-xs" onclick="btnClick();">戻る</p>
 
   <% end %>
 
-  <%= form_with(model:@user , local: true , method: 'get', url: new_user_path ,class:"form") do |f| %>
+  <%= form_with(model:@user , local: true , method: 'get', url: new_user_path ,class:"form hidden_filed") do |f| %>
 
     <%= f.hidden_field :name %>
     <%= f.hidden_field :email %>
-    <%= f.hidden_field :password %>
 
-    <%= f.submit "戻る",name:'back' ,class:"btn btn-default btn-xs"%>
+    <%= f.submit "戻る",name:'back' ,id:"backBtn",class:"btn btn-default btn-xs"%>
 
   <% end %>
 </div>
