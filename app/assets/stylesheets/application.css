@@ -112,3 +112,12 @@ footer p{
   display: block;
   clear: both;
 } 
+
+.input_field{
+  display: inline-block;
+  color:#333;
+  margin-left: 20px;
+  width: 200px;
+  padding: 5px;
+  font-size: 1rem;
+}

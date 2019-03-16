@@ -2,10 +2,7 @@ label {
   width:100px;
   padding: 5px;
 }
-input[type=text],input[type=email],input[type=password]{
-  color:#333;
-  margin-left: 20px;
-  width: 200px;
-  padding: 5px;
-  font-size: 1rem;
+.label_field{
+  border-style:None;
+  display: inline-block;
 }

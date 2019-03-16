@@ -12,11 +12,11 @@
 <%= form_with(model:@post , local:true , url: choose_new_or_edit_url , class:"form post_form form_border") do |f|%>
   <div class="form_group">
     <%= f.label :title%>
-    <%= f.text_field :title%>
+    <%= f.text_field :title,class:"input_field"%>
   </div>
   <div class="form_group">
     <%= f.label :content%>
-    <%= f.text_area :content%>
+    <%= f.text_area :content,class:"input_field"%>
   </div>
   <div class="form_group">
     <%= f.label :img_path%>
