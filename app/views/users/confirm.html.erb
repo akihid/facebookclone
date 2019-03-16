@@ -2,14 +2,16 @@
 
 <div class="form_border">
   <%= form_with(model:@user , local: true ,class:"form") do |f| %>
-    <div class="form_group">
-      <p>名前：<%= f.text_field :name ,value:@user.name ,disabled: true , class:"label_field"%></p>
+    <div class="item">
+      <p>名前：<%= @user.name %></p>
     </div>
-    <div class="form_group">
-      <p>メールアドレス：<%= f.text_field :email ,value:@user.email ,disabled: true , class:"label_field"%></p>
+    <div class="item">
+      <p>メールアドレス：<%= @user.email %></p>
     </div>
-    <div class="form_group">
-      <p>パスワード：<%= f.password_field :password ,value:@user.password ,disabled: true , class:"label_field"%></p>
+    <div class="item">
+      <% str = @user.password %>
+      <% pwd = str.sub(str, '●' * str.length) %>
+      <p>パスワード：<%= pwd %></p>
     </div>
     <%= f.hidden_field :name %>
     <%= f.hidden_field :email %>
